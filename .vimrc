@@ -94,7 +94,7 @@ nmap <silent> <C-N> :silent noh<CR>
 nmap <C-6> :b#<CR>
 
 " Ctrl-P to Display the file browser tree
-nmap <C-P> :NERDTreeToggle<CR>
+nmap <C-P> :NERDTreeToggle<CR>:set number<CR>:set nonumber<CR>
 " ,p to show current file in the tree
 nmap <leader>p :NERDTreeFind<CR>
 
@@ -116,6 +116,7 @@ nmap <leader>f :FufFile **/<CR>
 let g:miniBufExplVSplit = 25
 let g:miniBufExplorerMoreThanOne = 100
 let g:miniBufExplUseSingleClick = 1
+let g:miniBufExplSplitToEdge = 0
 nmap <C-b> :MiniBufExplorer<cr>
 
 let g:Conque_Read_Timeout = 50 " timeout for waiting for command output.
@@ -141,8 +142,8 @@ let g:yankring_replace_n_nkey = '<leader>]'
 
 set shell=/bin/bash
 
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 nnoremap / /\v
 vnoremap / /\v
@@ -157,13 +158,13 @@ set autowriteall        " Automatically save before commands like :next and :mak
 set hlsearch            " Highlight search match
 set hidden              " enable multiple modified buffers
 set nobackup            " do not write backup files
-set foldcolumn=0        " columns for folding
+set foldcolumn=2        " columns for folding
 set foldmethod=indent
-set foldlevel=9
+set foldlevel=300
 set history=1000
 set wildmenu
 set ruler
-set visualbell
+" set visualbell
 set gdefault            " Search&Replace includes /g by default
 au FocusLost * :wa      " Auto save when losing focus
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -178,6 +179,10 @@ nnoremap <silent> <F3> :YRShow<cr>  " For the yanking plugin
 inoremap <silent> <F3> <ESC>:YRShow<cr>
 
 nmap <leader>e :CommandT<CR>
+nmap <leader>E :CommandTFlush<CR>
+
 "set relativenumber
-"set colorcolumn=85
-"set undofile            " Create an unfo files to undos work across closes
+set colorcolumn=85
+set undofile            " Create an unfo files to undos work across closes
+set bs=2
+set sw=2
