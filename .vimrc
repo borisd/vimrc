@@ -186,3 +186,6 @@ set colorcolumn=85
 set undofile            " Create an unfo files to undos work across closes
 set bs=2
 set sw=2
+
+" fix backspace not deleting lines
+set backspace=indent,eol,start
