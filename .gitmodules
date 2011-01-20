@@ -4,3 +4,6 @@
 [submodule "bundle/rubyblock"]
 	path = bundle/rubyblock
 	url = git://github.com/nelstrom/vim-textobj-rubyblock.git
+[submodule "bundle/rubyrefactor"]
+	path = bundle/rubyrefactor
+	url = git://github.com/ecomba/vim-ruby-refactoring.git
