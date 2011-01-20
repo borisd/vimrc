@@ -8,6 +8,9 @@ if exists('g:loaded_pathogen')
   call pathogen#runtime_prepend_subdirectories(expand('~/.vim/bundles'))
 end
 
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
 syntax on
 filetype plugin indent on
 filetype plugin on

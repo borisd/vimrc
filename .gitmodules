@@ -1,0 +1,6 @@
+[submodule "bundle/textobj"]
+	path = bundle/textobj
+	url = git://github.com/kana/vim-textobj-user.git
+[submodule "bundle/rubyblock"]
+	path = bundle/rubyblock
+	url = git://github.com/nelstrom/vim-textobj-rubyblock.git
