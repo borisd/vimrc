@@ -77,7 +77,7 @@ let mapleader = ","
 map Q gq
 
 " highlight trailing whitespace  
-set listchars=tab:▷⋅,trail:·,eol:$
+" set listchars=tab:▷⋅,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
 
 " extended '%' mapping for if/then/else/end etc
@@ -145,8 +145,8 @@ set shell=/bin/bash
 set tabstop=2
 set shiftwidth=2
 set expandtab
-nnoremap / /\v
-vnoremap / /\v
+" nnoremap / /\v
+" vnoremap / /\v
 set textwidth=0         " Do not wrap words (insert)
 set nowrap              " Do not wrap words (view)
 set showcmd             " Show (partial) command in status line.
@@ -174,7 +174,8 @@ nnoremap <C-h> <C-w>h               " Navigate splits
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
+" Search and replace current word 
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/ 
 nnoremap <silent> <F3> :YRShow<cr>  " For the yanking plugin
 inoremap <silent> <F3> <ESC>:YRShow<cr>
 
@@ -189,3 +190,6 @@ set sw=2
 
 " fix backspace not deleting lines
 set backspace=indent,eol,start
+
+nmap <leader>o :put=''<CR>
+nmap <leader>O :put!=''<CR>
