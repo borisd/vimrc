@@ -87,8 +87,8 @@ runtime macros/matchit.vim
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
-" Ctrl-N to disable search match highlight
-nmap <silent> <C-N> :silent noh<CR>
+" Ctrl-R to disable search match highlight
+nmap <silent> <C-R> :silent noh<CR>
 
 " Ctrol-E to switch between 2 last buffers
 nmap <C-6> :b#<CR>
@@ -128,7 +128,10 @@ nmap <Leader>sh :ConqueSplit bash<cr>
 " ,r to open vimshell window
 nmap <Leader>r :ConqueSplit 
 
-
+" Tabs, create and navigate
+nmap <C-N> :tabedit<CR>
+nmap <silent> <S-Left> :tabprevious<CR>
+nmap <silent> <S-Right> :tabnext<CR>
 
 " map ,y to show the yankring
 nmap <leader>y :YRShow<cr>
