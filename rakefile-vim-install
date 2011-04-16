@@ -1,0 +1,71 @@
+# Easily install vim plugins from a source control checkout (e.g. Github)
+#
+# alias vim-install=rake -f ~/.vim/rakefile-vim-install
+# vim-install
+# vim-install uninstall
+
+require 'ftools'
+require 'fileutils'
+
+task :default => :install
+desc "Install a vim plugin the lazy way"
+task :install do
+  vim_dir      = File.expand_path("~/.vim")
+  plugin_dir   = Dir.pwd
+
+  if not (FileTest.exists? File.join(plugin_dir,".git") or
+          FileTest.exists? File.join(plugin_dir,".svn") or
+          FileTest.exists? File.join(plugin_dir,".hg"))
+      puts "#{plugin_dir} isn't a source controlled directory. Aborting."
+      exit 1
+  end
+
+  Dir['**/'].each do |d|
+    FileUtils.mkdir_p File.join(vim_dir, d)
+  end
+
+  Dir["**/*.{txt,snippet,snippets,vim,js,wsf}"].each do |f|
+    ln File.join(plugin_dir, f), File.join(vim_dir,f)
+  end
+
+  boldred = "\033[1;31m"
+  clear = "\033[0m"
+  puts "\nDone. Remember to #{boldred}:helptags ~/.vim/doc#{clear}"
+end
+
+task :uninstall do
+  vim_dir      = File.expand_path("~/.vim")
+  plugin_dir   = Dir.pwd
+  Dir["**/*.{txt,snippet,snippets,vim}"].each do |f|
+    safe_rm File.join(vim_dir, f)
+  end
+end
+
+def nicename(path)
+    boldgreen = "\033[1;32m"
+    clear = "\033[0m"
+    return "#{boldgreen}#{File.join(path.split('/')[-2..-1])}#{clear}\t"
+end
+
+def ln(src, dst)
+    begin
+        FileUtils.ln_s src, dst
+        puts "    Symlink #{nicename src}\t => #{nicename dst}"
+    rescue Errno::EEXIST
+        puts "  #{nicename dst} exists! Skipping."
+    end
+end
+
+def cp(src, dst)
+  puts "    Copying #{nicename src}\t=> #{nicename dst}"
+  FileUtils.cp src, dst
+end
+
+def safe_rm(target)
+    if FileTest.exists? target and FileTest.symlink? target
+        puts "    #{nicename target} removed."
+        File.delete target
+    else
+        puts "  #{nicename target} is not a symlink. Skipping"
+    end
+end

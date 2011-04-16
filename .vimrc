@@ -5,7 +5,7 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 
 runtime! autoload/pathogen.vim
 if exists('g:loaded_pathogen')
-  call pathogen#runtime_prepend_subdirectories(expand('~/.vim/bundles'))
+  call pathogen#runtime_prepend_subdirectories(expand('~/.vim/bundle'))
 end
 
 syntax on
@@ -88,7 +88,7 @@ map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
 " Ctrl-R to disable search match highlight
-nmap <silent> <C-R> :silent noh<CR>
+nmap <silent> <C-W> :silent noh<CR>
 
 " Ctrol-E to switch between 2 last buffers
 nmap <C-6> :b#<CR>
@@ -196,3 +196,12 @@ set backspace=indent,eol,start
 
 nmap <leader>o :put=''<CR>
 nmap <leader>O :put!=''<CR>
+
+" Cause automatic aligned around = or : characters
+let mapleader=','
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
