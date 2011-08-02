@@ -196,6 +196,11 @@ set backspace=indent,eol,start
 
 nmap <leader>o :put=''<CR>
 nmap <leader>O :put!=''<CR>
+nmap ,v <Esc>:vsplit<CR>
+nmap ,s <Esc>:split<CR>
+nmap ,t <Esc>:tabnew<CR>
+nmap <S-Right>:tabn<CR>
+nmap <S-Left>:tabn<CR>
 
 " Cause automatic aligned around = or : characters
 let mapleader=','
