@@ -5,7 +5,7 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 
 runtime! autoload/pathogen.vim
 if exists('g:loaded_pathogen')
-  call pathogen#runtime_prepend_subdirectories(expand('~/.vim/bundles'))
+  call pathogen#runtime_prepend_subdirectories(expand('~/.vim/bundle'))
 end
 
 call pathogen#runtime_append_all_bundles()
@@ -90,8 +90,8 @@ runtime macros/matchit.vim
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
-" Ctrl-N to disable search match highlight
-nmap <silent> <C-N> :silent noh<CR>
+" Ctrl-R to disable search match highlight
+nmap <silent> <C-W> :silent noh<CR>
 
 " Ctrol-E to switch between 2 last buffers
 nmap <C-6> :b#<CR>
@@ -131,7 +131,10 @@ nmap <Leader>sh :ConqueSplit bash<cr>
 " ,r to open vimshell window
 nmap <Leader>r :ConqueSplit 
 
-
+" Tabs, create and navigate
+nmap <C-N> :tabedit<CR>
+nmap <silent> <S-Left> :tabprevious<CR>
+nmap <silent> <S-Right> :tabnext<CR>
 
 " map ,y to show the yankring
 nmap <leader>y :YRShow<cr>
@@ -196,3 +199,17 @@ set backspace=indent,eol,start
 
 nmap <leader>o :put=''<CR>
 nmap <leader>O :put!=''<CR>
+nmap ,v <Esc>:vsplit<CR>
+nmap ,s <Esc>:split<CR>
+nmap ,t <Esc>:tabnew<CR>
+nmap <S-Right>:tabn<CR>
+nmap <S-Left>:tabn<CR>
+
+" Cause automatic aligned around = or : characters
+let mapleader=','
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif

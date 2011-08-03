@@ -1,1 +1,11 @@
-../.xxdiffrc
+Command.DiffFiles2: "diff -w"
+Accel.SaveAsLeft: "Ctrl+1"
+Accel.SaveAsRight: "Ctrl+2"
+Accel.EditLeft: "F1"
+Accel.EditRight: "F2"
+Accel.SelectGlobalLeft: "Alt+1"
+Accel.SelectGlobalRight: "Alt+2"
+Accel.SelectRegionLeft: "Ctrl+Left"
+Accel.SelectRegionRight: "Ctrl+Right"
+Accel.SelectLineLeft: "Shift+Left"
+Accel.SelectLineRight: "Shift+Right"

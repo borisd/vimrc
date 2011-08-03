@@ -7,3 +7,4 @@
 [submodule "bundle/rubyrefactor"]
 	path = bundle/rubyrefactor
 	url = git://github.com/ecomba/vim-ruby-refactoring.git
+
