@@ -1,0 +1,5 @@
+ln -s .vimrc ~/.vimrc 
+ln -s .gitignore ~/.gitignore 
+ln -s .irbrc ~/.irbrc 
+ln -s .bashrc ~/.bashrc
+ln -s .zshrc ~/.zshrc
