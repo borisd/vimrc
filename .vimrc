@@ -106,7 +106,7 @@ vmap <leader>/ :call NERDComment(0, "invert")<cr>
 vmap <C-A> :Align! =<P0 
 
 " Tag navigation
-nmap <C-t> :TlistToggle<CR>
+nmap <F8> :TlistToggle<CR>
 
 " ,t to show tags window
 let Tlist_Show_Menu=1
