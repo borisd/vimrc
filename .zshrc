@@ -11,7 +11,7 @@ ZSH_THEME="../../boris"
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -21,7 +21,7 @@ ZSH_THEME="../../boris"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rails3 ruby bundler gem git github rvm )
+plugins=(git rails rails3 ruby bundler gem git github rvm )
 
 source $ZSH/oh-my-zsh.sh
 
