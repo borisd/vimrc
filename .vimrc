@@ -105,6 +105,12 @@ nmap <leader>p :NERDTreeFind<CR>
 nmap <leader>/ :call NERDComment(0, "invert")<cr>
 vmap <leader>/ :call NERDComment(0, "invert")<cr>
 
+" Align plugin
+vmap <C-A> :Align! =<P0 
+
+" Tag navigation
+nmap <F8> :TlistToggle<CR>
+
 " ,t to show tags window
 let Tlist_Show_Menu=1
 nmap <leader>t :TlistToggle<CR>
@@ -202,8 +208,6 @@ nmap <leader>O :put!=''<CR>
 nmap ,v <Esc>:vsplit<CR>
 nmap ,s <Esc>:split<CR>
 nmap ,t <Esc>:tabnew<CR>
-nmap <S-Right>:tabn<CR>
-nmap <S-Left>:tabn<CR>
 
 " Cause automatic aligned around = or : characters
 let mapleader=','
@@ -213,3 +217,14 @@ if exists(":Tabularize")
   nmap <Leader>a: :Tabularize /:\zs<CR>
   vmap <Leader>a: :Tabularize /:\zs<CR>
 endif
+
+autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
+
+" New
+set showcmd
+inoremap jj <Esc>
+set backup
+set backupdir=~/.vim/backup
+set directory=~/.vim/tmp
+set undodir=~/.vim/undo

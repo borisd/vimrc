@@ -1,10 +1,21 @@
-[submodule "bundle/textobj"]
-	path = bundle/textobj
-	url = git://github.com/kana/vim-textobj-user.git
-[submodule "bundle/rubyblock"]
-	path = bundle/rubyblock
-	url = git://github.com/nelstrom/vim-textobj-rubyblock.git
-[submodule "bundle/rubyrefactor"]
-	path = bundle/rubyrefactor
-	url = git://github.com/ecomba/vim-ruby-refactoring.git
-
+[submodule "bundle/vim-textobj-user"]
+	path = bundle/vim-textobj-user
+	url = https://github.com/kana/vim-textobj-user.git
+[submodule "bundle/vim-textobj-rubyblock"]
+	path = bundle/vim-textobj-rubyblock
+	url = https://github.com/nelstrom/vim-textobj-rubyblock.git
+[submodule "bundle/closetag"]
+	path = bundle/closetag
+	url = git://github.com/docunext/closetag.vim.git
+[submodule "bundle/vim-align"]
+	path = bundle/vim-align
+	url = git://github.com/tsaleh/vim-align.git
+[submodule "bundle/taglist"]
+	path = bundle/taglist
+	url = git://github.com/vim-scripts/taglist.vim.git
+[submodule "bundle/coffee-script"]
+	path = bundle/coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "oh-my-zsh"]
+	path = oh-my-zsh
+	url = git://github.com/robbyrussell/oh-my-zsh.git
