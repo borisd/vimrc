@@ -4,11 +4,11 @@ SHELL = /bin/sh
 #### Start of system configuration section. ####
 
 srcdir = .
-topdir = /home/murkin/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/x86_64-linux
+topdir = /home/murkin/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/i686-linux
 hdrdir = $(topdir)
 VPATH = $(srcdir):$(topdir):$(hdrdir)
 exec_prefix = $(prefix)
-prefix = $(DESTDIR)/home/murkin/.rvm/rubies/ruby-1.8.7-p334
+prefix = $(DESTDIR)/home/murkin/.rvm/rubies/ruby-1.8.7-p302
 sharedstatedir = $(prefix)/com
 mandir = $(datarootdir)/man
 psdir = $(docdir)
@@ -46,7 +46,7 @@ LIBRUBYARG_STATIC = -l$(RUBY_SO_NAME)-static
 RUBY_EXTCONF_H = 
 CFLAGS   =  -fPIC -g -O2  -fPIC $(cflags) 
 INCFLAGS = -I. -I$(topdir) -I$(hdrdir) -I$(srcdir)
-DEFS     = 
+DEFS     = -D_FILE_OFFSET_BITS=64
 CPPFLAGS = -DHAVE_RUBY_H  $(DEFS) $(cppflags)
 CXXFLAGS = $(CFLAGS) 
 ldflags  = -L.  -rdynamic -Wl,-export-dynamic
@@ -59,10 +59,10 @@ EXEEXT =
 
 RUBY_INSTALL_NAME = ruby
 RUBY_SO_NAME = ruby
-arch = x86_64-linux
-sitearch = x86_64-linux
+arch = i686-linux
+sitearch = i686-linux
 ruby_version = 1.8
-ruby = /home/murkin/.rvm/rubies/ruby-1.8.7-p334/bin/ruby
+ruby = /home/murkin/.rvm/rubies/ruby-1.8.7-p302/bin/ruby
 RUBY = $(ruby)
 RM = rm -f
 MAKEDIRS = mkdir -p
@@ -87,8 +87,8 @@ extout_prefix =
 target_prefix = 
 LOCAL_LIBS = 
 LIBS = $(LIBRUBYARG_SHARED)  -lrt -ldl -lcrypt -lm   -lc
-SRCS = ext.c match.c matcher.c
-OBJS = ext.o match.o matcher.o
+SRCS = matcher.c match.c ext.c
+OBJS = matcher.o match.o ext.o
 TARGET = ext
 DLLIB = $(TARGET).so
 EXTSTATIC = 

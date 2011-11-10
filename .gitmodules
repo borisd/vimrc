@@ -1,9 +1,6 @@
 [submodule "bundle/vim-textobj-user"]
 	path = bundle/vim-textobj-user
 	url = https://github.com/kana/vim-textobj-user.git
-[submodule "bundle/vim-textobj-rubyblock"]
-	path = bundle/vim-textobj-rubyblock
-	url = https://github.com/nelstrom/vim-textobj-rubyblock.git
 [submodule "bundle/closetag"]
 	path = bundle/closetag
 	url = git://github.com/docunext/closetag.vim.git
@@ -19,3 +16,6 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
+[submodule "bundle/ZoomWin"]
+	path = bundle/ZoomWin
+	url = git://github.com/vim-scripts/ZoomWin.git

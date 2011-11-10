@@ -1,0 +1,3 @@
+** Message: Could not connect to session manager: Could not get owner of name 'org.gnome.SessionManager': no such name
+
+** (gnome-panel:21538): WARNING **: Could not connect to session manager: Could not get owner of name 'org.gnome.SessionManager': no such name

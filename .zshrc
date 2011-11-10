@@ -23,9 +23,11 @@ DISABLE_AUTO_UPDATE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git rails rails3 ruby bundler gem git github rvm )
 
+alias heroku='nocorrect heroku'
+
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/home/murkin/.rvm/gems/ruby-1.8.7-p334/bin:/home/murkin/.rvm/gems/ruby-1.8.7-p334@global/bin:/home/murkin/.rvm/rubies/ruby-1.8.7-p334/bin:/home/murkin/.rvm/bin:/home/murkin/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+export PATH=/hOme/murkin/.rvm/gems/ruby-1.8.7-p334/bin:/home/murkin/.rvm/gems/ruby-1.8.7-p334@global/bin:/home/murkin/.rvm/rubies/ruby-1.8.7-p334/bin:/home/murkin/.rvm/bin:/home/murkin/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 

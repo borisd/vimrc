@@ -86,6 +86,10 @@ nmap <silent> <leader>s :set nolist!<CR>
 " extended '%' mapping for if/then/else/end etc
 runtime macros/matchit.vim
 
+" Set easymotion leadery
+let g:EasyMotion_leader_key = '\'
+let g:EasyMotion_mapping_t  = '_'
+
 " Make shift-insert work like in Xterm
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
@@ -113,10 +117,10 @@ nmap <F8> :TlistToggle<CR>
 
 " ,t to show tags window
 let Tlist_Show_Menu=1
-nmap <leader>t :TlistToggle<CR>
+nmap <leader>q :TlistToggle<CR>
 
 " ,e to fast finding files. just type beginning of a name and hit TAB
-nmap <leader>e :e **/
+"nmap <leader>e :e **/
 
 " ,f to fast finding files using fuzzy finder.
 nmap <leader>f :FufFile **/<CR>
@@ -191,11 +195,11 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 nnoremap <silent> <F3> :YRShow<cr>  " For the yanking plugin
 inoremap <silent> <F3> <ESC>:YRShow<cr>
 
-nmap <leader>e :CommandT<CR>
-nmap <leader>E :CommandTFlush<CR>
+nmap <F2> :CommandT<CR>
+nmap <S-F2> :CommandTFlush<CR>
 
 "set relativenumber
-set colorcolumn=85
+"set colorcolumn=85
 set undofile            " Create an unfo files to undos work across closes
 set bs=2
 set sw=2
@@ -205,9 +209,9 @@ set backspace=indent,eol,start
 
 nmap <leader>o :put=''<CR>
 nmap <leader>O :put!=''<CR>
-nmap ,v <Esc>:vsplit<CR>
-nmap ,s <Esc>:split<CR>
-nmap ,t <Esc>:tabnew<CR>
+nmap <leader>v <Esc>:vsplit<CR>
+nmap <leader>s <Esc>:split<CR>
+nmap <leader>t <Esc>:tabnew<CR>
 
 " Cause automatic aligned around = or : characters
 let mapleader=','
