@@ -212,6 +212,7 @@ nmap <leader>O :put!=''<CR>
 nmap <leader>v <Esc>:vsplit<CR>
 nmap <leader>s <Esc>:split<CR>
 nmap <leader>t <Esc>:tabnew<CR>
+nmap <leader><leader> :ZoomWin<CR>
 
 " Cause automatic aligned around = or : characters
 let mapleader=','
