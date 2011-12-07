@@ -195,8 +195,8 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 nnoremap <silent> <F3> :YRShow<cr>  " For the yanking plugin
 inoremap <silent> <F3> <ESC>:YRShow<cr>
 
-nmap <F2> :CommandT<CR>
-nmap <S-F2> :CommandTFlush<CR>
+nmap <leader>e :CommandT<CR>
+nmap <leader>E :CommandTFlush<CR>
 
 "set relativenumber
 "set colorcolumn=85
