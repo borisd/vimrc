@@ -30,4 +30,6 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=/hOme/murkin/.rvm/gems/ruby-1.8.7-p334/bin:/home/murkin/.rvm/gems/ruby-1.8.7-p334@global/bin:/home/murkin/.rvm/rubies/ruby-1.8.7-p334/bin:/home/murkin/.rvm/bin:/home/murkin/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 
+export EDITOR=vim
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
