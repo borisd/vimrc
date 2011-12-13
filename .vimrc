@@ -87,8 +87,8 @@ nmap <silent> <leader>s :set nolist!<CR>
 runtime macros/matchit.vim
 
 " Set easymotion leadery
-let g:EasyMotion_leader_key = '\'
-let g:EasyMotion_mapping_t  = '_'
+let g:EasyMotion_leader_key = ','
+let g:EasyMotion_mapping_t  = '\'
 
 " Make shift-insert work like in Xterm
 map <S-Insert> <MiddleMouse>
@@ -191,7 +191,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 " Search and replace current word 
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>/ 
+nnoremap <F2> :%s/\<<C-r><C-w>\>/ 
 nnoremap <silent> <F3> :YRShow<cr>  " For the yanking plugin
 inoremap <silent> <F3> <ESC>:YRShow<cr>
 
