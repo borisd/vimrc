@@ -87,7 +87,7 @@ nmap <silent> <leader>s :set nolist!<CR>
 runtime macros/matchit.vim
 
 " Set easymotion leadery
-let g:EasyMotion_leader_key = ','
+let g:EasyMotion_leader_key = '\'
 let g:EasyMotion_mapping_t  = '\'
 
 " Make shift-insert work like in Xterm
@@ -101,7 +101,7 @@ nmap <silent> <C-W> :silent noh<CR>
 nmap <C-6> :b#<CR>
 
 " Ctrl-P to Display the file browser tree
-nmap <C-P> :NERDTreeToggle<CR>:set number<CR>:set nonumber<CR>
+nmap <F9> :NERDTreeToggle<CR>:set number<CR>:set nonumber<CR>
 " ,p to show current file in the tree
 nmap <leader>p :NERDTreeFind<CR>
 
@@ -190,10 +190,17 @@ nnoremap <C-h> <C-w>h               " Navigate splits
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
 " Search and replace current word 
 nnoremap <F2> :%s/\<<C-r><C-w>\>/ 
+
+" Show yank history 
 nnoremap <silent> <F3> :YRShow<cr>  " For the yanking plugin
 inoremap <silent> <F3> <ESC>:YRShow<cr>
+
+" Use C-P and C-N to cycle between old yanks after a past
+let g:yankring_replace_n_pkey = '<C-P>'
+let g:yankring_replace_n_nkey = '<C-N>'
 
 nmap <leader>e :CommandT<CR>
 nmap <leader>E :CommandTFlush<CR>
