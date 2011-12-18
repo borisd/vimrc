@@ -22,6 +22,4 @@
 [submodule "bundle/syntastics"]
 	path = bundle/syntastics
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "bundle/vim-textobject-rubyblock"]
-	path = bundle/vim-textobject-rubyblock
-	url = https://github.com/nelstrom/vim-textobj-rubyblock.git
+
