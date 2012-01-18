@@ -136,10 +136,10 @@ let g:Conque_Read_Timeout = 50 " timeout for waiting for command output.
 let g:Conque_TERM = 'xterm'
 
 " ,sh to open vimshell window
-nmap <Leader>sh :ConqueSplit bash<cr>
+nmap <Leader>sh :ConqueTermVSplit bash<cr>
 
 " ,r to open vimshell window
-nmap <Leader>r :ConqueSplit 
+nmap <Leader>r :ConqueTermVSplit 
 
 " Tabs, create and navigate
 nmap <C-N> :tabedit<CR>
