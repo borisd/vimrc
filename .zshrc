@@ -32,4 +32,9 @@ export PATH=/hOme/murkin/.rvm/gems/ruby-1.8.7-p334/bin:/home/murkin/.rvm/gems/ru
 
 export EDITOR=vim
 
+#GNUSTEP Environment vars 
+. /usr/share/GNUstep/Makefiles/GNUstep.sh
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+
+[ -s "/home/murkin/.scm_breeze/scm_breeze.sh" ] && source "/home/murkin/.scm_breeze/scm_breeze.sh"
