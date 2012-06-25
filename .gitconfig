@@ -1,0 +1,11 @@
+[user]
+	name = Boris Dinkevich
+	email = Boris@dinkevich.com
+[diff]
+	external = /home/murkin/bin/diff.py
+[core]
+	excludesfile = /home/murkin/.gitignore
+[heroku]
+	account = murkin
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit
