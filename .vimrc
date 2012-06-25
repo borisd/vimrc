@@ -240,3 +240,6 @@ set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
 set undodir=~/.vim/undo
+
+" Set special syntax highliting
+au BufReadPost *.rabl set syntax=ruby
