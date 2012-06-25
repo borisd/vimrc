@@ -116,3 +116,5 @@ export JAVA_HOMe=/usr/lib/jvm/java-6-sun/
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 fi
 
+
+[ -s "/home/murkin/.scm_breeze/scm_breeze.sh" ] && source "/home/murkin/.scm_breeze/scm_breeze.sh"
