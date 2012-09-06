@@ -23,6 +23,14 @@ set completeopt=menuone,preview
 set ofu=syntaxcomplete#Complete
 let g:rubycomplete_buffer_loading = 0
 let g:rubycomplete_classes_in_global = 1
+
+" enable 256 colors in GNOME terminal (for my Ubuntu VM)
+if $COLORTERM == 'gnome-terminal'
+    set t_Co=256
+    colorscheme Tomorrow-Night-Bright
+endif
+
+
 " completing Rails hangs a lot
 "let g:rubycomplete_rails = 1
 
