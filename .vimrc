@@ -15,14 +15,15 @@ syntax on
 filetype plugin indent on
 filetype plugin on
 
-"set completeopt=menuone,preview,longest
-set completeopt=menuone,preview
+set completeopt=menuone,preview,longest
+"set completeopt=menuone,preview
 "inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+set complete-=i
 
 " Omni completion settings
-set ofu=syntaxcomplete#Complete
-let g:rubycomplete_buffer_loading = 0
-let g:rubycomplete_classes_in_global = 1
+"set ofu=syntaxcomplete#Complete
+"let g:rubycomplete_buffer_loading = 0
+"let g:rubycomplete_classes_in_global = 1
 
 " enable 256 colors in GNOME terminal (for my Ubuntu VM)
 if $COLORTERM == 'gnome-terminal'
@@ -30,9 +31,11 @@ if $COLORTERM == 'gnome-terminal'
     colorscheme Tomorrow-Night-Bright
 endif
 
-
 " completing Rails hangs a lot
-"let g:rubycomplete_rails = 1
+let g:rubycomplete_rails = 1
+
+" set supported JS libraries
+let g:used_javascript_libs = 'underscore,angularjs,jquery,requirejs'
 
 " syntastic
 let g:syntastic_enable_signs=1
@@ -47,10 +50,8 @@ set laststatus=2
 
 " default:
 " set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-"set statusline=%<%f\ %h%m%r%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-14.(%l,%c%V%)\ %P
 " highlihgt the file name
 hi User1 term=bold,reverse cterm=bold ctermfg=4 ctermbg=2 gui=bold guifg=Blue guibg=#44aa00
-" set statusline=%<%1*%f%*\ %h%m%r%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-14.(%l,%c%V%)\ %P
 
 "set cuc
 "set cul
@@ -66,10 +67,7 @@ set binary
 "Ignore these files when completing names and in Explorer
 set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif
 
-hi SpellErrors guibg=red guifg=black ctermbg=red ctermfg=black
-
-set backupdir=~/.backup,.
-set directory=~/.backup,~/tmp,.
+"hi SpellErrors guibg=red guifg=black ctermbg=red ctermfg=black
 
 " enable showmmarks
 let g:showmarks_enable = 1
@@ -77,7 +75,6 @@ hi! link ShowMarksHLl LineNr
 hi! link ShowMarksHLu LineNr
 hi! link ShowMarksHLo LineNr
 hi! link ShowMarksHLm LineNr
-
 
 " Make
 :command -nargs=* Make make <args> | cwindow 3
@@ -110,6 +107,7 @@ nmap <C-6> :b#<CR>
 
 " Ctrl-P to Display the file browser tree
 nmap <F9> :NERDTreeToggle<CR>:set number<CR>:set nonumber<CR>
+
 " ,p to show current file in the tree
 nmap <leader>p :NERDTreeFind<CR>
 
@@ -121,30 +119,21 @@ vmap <leader>/ :call NERDComment(0, "invert")<cr>
 vmap <C-A> :Align! =<P0 
 
 " Tag navigation
-nmap <F8> :TlistToggle<CR>
-
-" ,t to show tags window
 let Tlist_Show_Menu=1
-nmap <leader>q :TlistToggle<CR>
-
-" ,e to fast finding files. just type beginning of a name and hit TAB
-"nmap <leader>e :e **/
-
-" ,f to fast finding files using fuzzy finder.
-nmap <leader>f :FufFile **/<CR>
+nmap <F8> :TlistToggle<CR>
 
 " ,b to display current buffers list
 let g:miniBufExplVSplit = 25
 let g:miniBufExplorerMoreThanOne = 100
 let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplSplitToEdge = 0
-nmap <C-b> :MiniBufExplorer<cr>
+nmap <F4> :MiniBufExplorer<cr>
 
 let g:Conque_Read_Timeout = 50 " timeout for waiting for command output.
 let g:Conque_TERM = 'xterm'
 
 " ,sh to open vimshell window
-nmap <Leader>sh :ConqueTermVSplit bash<cr>
+nmap <Leader>sh :ConqueTermVSplit zsh<cr>
 
 " ,r to open vimshell window
 nmap <Leader>r :ConqueTermVSplit 
@@ -164,7 +153,7 @@ endif
 let g:yankring_replace_n_pkey = '<leader>['
 let g:yankring_replace_n_nkey = '<leader>]'
 
-set shell=/bin/bash
+set shell=/usr/bin/zsh
 
 set tabstop=2
 set shiftwidth=2
@@ -238,7 +227,6 @@ if exists(":Tabularize")
   vmap <Leader>a: :Tabularize /:\zs<CR>
 endif
 
-autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
 autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
 
 " New
@@ -251,3 +239,45 @@ set undodir=~/.vim/undo
 
 " Set special syntax highliting
 au BufReadPost *.rabl set syntax=ruby
+
+" Markdown files end in .md
+au BufRead,BufNewFile *.md set filetype=markdown
+
+" rspec mappings
+map <Leader>1 :call RunCurrentSpecFile()<CR>
+map <Leader>2 :call RunNearestSpec()<CR>
+map <Leader>3 :call RunLastSpec()<CR>
+
+function! RunCurrentSpecFile()
+  if InSpecFile()
+    let l:command = "s " . @% . " -f documentation"
+    call SetLastSpecCommand(l:command)
+    call RunSpecs(l:command)
+  endif
+endfunction
+
+function! RunNearestSpec()
+  if InSpecFile()
+    let l:command = "s " . @% . " -l " . line(".") . " -f documentation"
+    call SetLastSpecCommand(l:command)
+    call RunSpecs(l:command)
+  endif
+endfunction
+
+function! RunLastSpec()
+  if exists("t:last_spec_command")
+    call RunSpecs(t:last_spec_command)
+  endif
+endfunction
+
+function! InSpecFile()
+  return match(expand("%"), "_spec.rb$") != -1
+endfunction
+
+function! SetLastSpecCommand(command)
+  let t:last_spec_command = a:command
+endfunction
+
+function! RunSpecs(command)
+  execute ":w\|!clear && echo " . a:command . " && echo && " . a:command
+endfunction
