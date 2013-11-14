@@ -61,7 +61,7 @@ unset color_prompt force_color_prompt
 case "$TERM" in
 xterm*|rxvt*)
 #    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    PS1="\[\033[38m\]\h\[\033[01;34m\]\w\[\033[31m\]\`ruby -e \"print (%x{git branch 2> /dev/null}.grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1)')\"\`\[\033[37m\]$\[\033[00m\] "
+    PS1="\[\033[38m\]\h\[\033[01;34m\]\w\[\033[31m\]\`ruby -e \"print (%x{git branch 2> /dev/null}.split("\\n").grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1)')\"\`\[\033[37m\]$\[\033[00m\] "
     ;;
 *)
     ;;
@@ -118,3 +118,5 @@ fi
 
 
 [ -s "/home/murkin/.scm_breeze/scm_breeze.sh" ] && source "/home/murkin/.scm_breeze/scm_breeze.sh"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
