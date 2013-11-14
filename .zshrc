@@ -24,16 +24,30 @@ DISABLE_AUTO_UPDATE="true"
 plugins=(git rails rails3 ruby bundler gem git github rvm )
 
 alias heroku='nocorrect heroku'
+alias gr='git remote -v'
+alias ll='ls -l'
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=/hOme/murkin/.rvm/gems/ruby-1.8.7-p334/bin:/home/murkin/.rvm/gems/ruby-1.8.7-p334@global/bin:/home/murkin/.rvm/rubies/ruby-1.8.7-p334/bin:/home/murkin/.rvm/bin:/home/murkin/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+export PATH="/usr/local/heroku/bin:$PATH"
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export EDITOR=vim
 
-#GNUSTEP Environment vars 
-. /usr/share/GNUstep/Makefiles/GNUstep.sh
+export DBUSER=murkin
+export DBPASS=123123
+export PGUSER=murkin
+export PGPASS=123123
+export MYSQLUSER=murkin
+export MYSQLPASS=123123
+export REDIS_URL='redis://localhost:6379'
+export REDISTOGO_URL='redis://localhost:6379'
+
+# Ruby GC settings
+export RUBY_GC_MALLOC_LIMIT=90000000
+export RUBY_FREE_MIN=200000
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
